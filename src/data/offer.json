@@ -1,0 +1,66 @@
+[
+  {
+    "id": 90001,
+    "name": "LI’L TREATS",
+    "description": "3-count MUNCHKINS® donut hole treats or 6-count hash browns.",
+    "oldPrice": 80,
+    "newPrice": 100,
+    "image": "public/img/offer/offer-1.png"
+  },
+  {
+    "id": 90002,
+    "name": "DONUTS",
+    "description": "One classic donut.",
+    "oldPrice": 80,
+    "newPrice": 100,
+    "image": "public/img/offer/offer-2.png"
+  },
+  {
+    "id": 90003,
+    "name": "TEA",
+    "description": "A small, medium, or large hot or iced tea.",
+    "oldPrice": 80,
+    "newPrice": 100,
+    "image": "public/img/offer/offer-3.png"
+  },
+  {
+    "id": 90004,
+    "name": "COFFEE AND COLD BREW",
+    "description": "A small, medium or large hot or iced coffee or Cold Brew.",
+    "oldPrice": 80,
+    "newPrice": 100,
+    "image": "public/img/offer/offer-4.png"
+  },
+  {
+    "id": 90005,
+    "name": "BITES & BAGELS",
+    "description": "A Wake-Up Wrap® with or without meat, or a bagel with spread.",
+    "oldPrice": 80,
+    "newPrice": 100,
+    "image": "public/img/offer/offer-5.png"
+  },
+  {
+    "id": 90006,
+    "name": "NON-COFFEE DRINKS",
+    "description": "A small, medium or large Dunkin' Refresher, Hot Chocolate or hot or iced Chai Latte or Matcha Latte.",
+    "oldPrice": 80,
+    "newPrice": 100,
+    "image": "public/img/offer/offer-6.png"
+  },
+  {
+    "id": 90007,
+    "name": "BREAKFAST SANDWICHES",
+    "description": "A breakfast sandwich with your choice of meat, egg, cheese and bread.",
+    "oldPrice": 80,
+    "newPrice": 100,
+    "image": "public/img/offer/offer-7.png"
+  },
+  {
+    "id": 90008,
+    "name": "ESPRESSO AND FROZEN DRINKS",
+    "description": "Any size frozen drink or hot or iced espresso drink.",
+    "oldPrice": 80,
+    "newPrice": 100,
+    "image": "public/img/offer/offer-8.png"
+  }
+]

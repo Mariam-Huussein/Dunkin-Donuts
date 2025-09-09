@@ -1,0 +1,73 @@
+header {
+    width: 100%;
+    max-width: 1450px;
+    margin: auto;
+    position: sticky;
+    top: 0;
+    z-index: 99999;
+}
+
+.nav-link{
+    font-weight: 600 !important;
+}
+
+.btn-log-out{
+    background-color: var(--primary);
+}
+.btn-log-out:hover{
+    background-color: var(--secondary-hoverd);
+}
+
+.navbar-scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.navbar-toggler{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border-radius: 0;
+    border: none !important;
+    border-radius: 0;
+    outline: none !important;
+}
+
+.navbar-toggler:hover,
+.navbar-toggler:focus{
+    box-shadow: none !important;
+}
+
+.toggler-icon{
+    position: absolute;
+    width: 60%;
+    height: 3px;
+    left: 0;
+    background-color: var(--black-color);
+    transition: all 0.3s ease-in-out;
+    margin: auto;
+}
+
+.toggler-icon:first-child{
+    top: 0;
+}
+.toggler-icon:nth-child(2){
+    top: 8px;
+}
+.toggler-icon:last-child{
+    top: 16px;
+}
+
+.navbar-toggler.open .toggler-icon:nth-child(2){
+    opacity: 0;
+}
+
+.navbar-toggler.open .toggler-icon:first-child{
+    top: 8px;
+    transform: rotate(45deg);
+}
+
+.navbar-toggler.open .toggler-icon:last-child{
+    top: 8px;
+    transform: rotate(-45deg);
+}

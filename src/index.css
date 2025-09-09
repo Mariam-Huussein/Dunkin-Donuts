@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@font-face {
+  font-family: "DunkinSansExtraBold";
+  src: url('./../public/fonts/Dunkin Sans Bold.woff2') format('woff2'),
+        url('./../public/fonts/Dunkin Sans Bold.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+}
+
+:root {
+  --white-color: #ffffff;
+  --gray-color: #343A40;
+  --mute-text: #d8dbdf;
+  --black-color: #3e342f;
+  --card: #F8F9FA;
+  --primary: #e76701;
+  --secondary: #c63663; 
+  --secondary-hoverd: #d62839;
+  --highlight-color: #faeff3;
+  --border: #f6f5f3;
+  --radius: 8px;
+  --font-family-title: "DunkinSansExtraBold", "Montserrat", sans-serif !important;
+  --font-family-text: "Poppins", "Montserrat", sans-serif;
+}
+
+::selection{
+  background-color: var(--primary);
+  color: var(--border);
+}
+
+body{
+  font-family: var(--font-family-text);
+}
+
+.title{
+  font-family: var(--font-family-title);
+  font-size: 2.8rem;
+  text-transform: uppercase;
+  word-spacing: -0.5rem;
+}
+
+textarea{
+  resize: none !important;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+textarea::-webkit-scrollbar {
+  display: none;
+}
+
+.form-control:focus {
+  /* border-color: var(--secondary-hoverd) !important; */
+  box-shadow: 0 0 0 0.25rem rgba(231, 103, 1, 0.68) !important;
+}
+
+a{
+  cursor: pointer;
+  text-decoration: none;
+}
+
+p{
+  margin: 0!important;
+}
+
+ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.heart-icon .wishlist-active{
+  fill: var(--secondary-hoverd)
+}
+
+.my-btn,
+button{
+  padding:6px 24px !important;;
+  border-radius: 32px !important;
+  text-decoration: none !important;
+  border: none;
+  outline: none !important;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease-in-out;
+}
+
+.my-btn:hover,
+button:hover{
+  box-shadow: 0px 0px 8px 0.6px rgba(0, 0, 0, 0.2);
+}
+
+.my-btn-primary {
+  background: var(--secondary);
+  color: var(--white-color);
+  border: none;
+}
+
+.my-btn-primary:hover {
+  background: var(--secondary-hoverd);
+}
+
+.my-btn-outline-sec{
+  border: 2px solid var(--primary) !important;
+  background-color: transparent !important;
+  color: var(--black-color) !important;
+}
+
+.my-btn-outline-sec:hover{
+  background-color: var(--primary) !important;
+  color: var(--white-color) !important;
+}
+
+.my-btn-outline {
+  border: 2px solid var(--secondary) !important;
+  background-color: transparent !important;
+  color: var(--black-color) !important;
+}
+
+.my-btn-outline:hover {
+  background-color: var(--secondary) !important;
+  color: var(--white-color) !important;
+}
+div[data-sonner-toast], div[data-toast] {
+  z-index: 999999 !important;
+}
+
+@media (max-width: 480px) {
+  html{
+    font-size: 13px;
+  }
+}
+
+main{
+  max-width: 1450px;
+  margin: auto;
+  background-color: var(--white-color) !important;
+}
+
+header,
+.conatiner,
+section{
+  margin: 0;
+  background-color: var(--white-color) !important;
+}
+
+body{
+  background-color: var(--card) !important;
+}
+
+header,
+footer{
+  max-width: 1450px;
+  margin: auto;
+}
