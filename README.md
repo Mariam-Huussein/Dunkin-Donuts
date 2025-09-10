@@ -8,6 +8,7 @@ It’s a web version of Dunkin' Donuts where users can browse products, create a
 ## 🛠️ Technologies Used
 
 - **React + Vite** → Fast and modern frontend framework.  
+- **Redux** → State management for cart, wishlist, and user session.  
 - **Bootstrap** → Responsive design and prebuilt UI components.  
 - **CSS** → Custom styling.  
 - **Firebase**:  
@@ -39,10 +40,12 @@ It’s a web version of Dunkin' Donuts where users can browse products, create a
 
 - **Cart**:  
   - Add/remove items from cart.  
+  - State managed via **Redux**.  
   - Only authenticated users can place an order.  
 
 - **Wishlist**:  
   - Save favorite items for later.  
+  - Managed with **Redux**.  
 
 ---
 
@@ -55,16 +58,11 @@ Check out the live version hosted on GitHub Pages:
 
 ## 📚 Notes
 
-This project was part of a training program at DevWave.
-
-It demonstrates:
-
-React + Vite for modern frontend development.
-
-Firebase Authentication (Register, Login, Forget Password).
-
-Firebase Firestore for storing orders.
-
-Protected routes: only authenticated users can place orders.
-
-Responsive UI designed with Bootstrap + CSS.
+- This project was part of a **training program at DevWave**.  
+- It demonstrates:  
+  - **React + Vite** for modern frontend development.  
+  - **Redux** for state management.  
+  - **Firebase Authentication** (Register, Login, Forget Password).  
+  - **Firebase Firestore** for storing orders.  
+  - Protected routes → only authenticated users can place orders.  
+  - Responsive UI designed with **Bootstrap + CSS**.  
