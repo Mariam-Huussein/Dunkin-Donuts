@@ -1,12 +1,27 @@
-# React + Vite
+# Dunkin' Donuts Web Project 🍩
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a **training project** developed during my internship at **DevWave**. It’s a web version of Dunkin' Donuts showcasing products and prices in an interactive way.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠️ Technologies Used
 
-## Expanding the ESLint configuration
+- **HTML / CSS / JavaScript**: For designing the user interface and adding interactivity.  
+- **Firebase**: Used for managing user accounts and orders.  
+- **GitHub**: For version control and hosting on GitHub Pages.  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## ⚡ Project Features
+
+- Display a list of products with images and prices.  
+- User authentication and account management via Firebase.  
+- Users can place orders, stored in Firebase.  
+- User-friendly and attractive interface.  
+- Interactive experience similar to a real online store.  
+
+---
+## 🌐 Live Project
+
+Check out the live version of the Dunkin' Donuts project on GitHub Pages:  
+👉 [View Project](https://mariam-huussein.github.io/Dunkin-Donuts/)
