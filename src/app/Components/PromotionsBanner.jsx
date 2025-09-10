@@ -25,9 +25,6 @@ export default function PromotionsBanner() {
               <FaClock className="me-2" />
               <span className="fw-5">Offer ends in 3 days</span>
             </div>
-            {/* <button className="my-btn my-btn-outline text-light">
-              Claim Offer Now
-            </button> */}
           </div>
 
         </div>

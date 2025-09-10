@@ -2,6 +2,8 @@ import { useState } from "react";
 import { auth } from "./../../../firebaseconfig";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { Link } from "react-router-dom";
+import PageLoader from "../Pages/PageLoader";
+import toast from "react-hot-toast";
 
 function ForgotPassword() {
   const [email, setEmail] = useState("");
@@ -66,7 +68,7 @@ function ForgotPassword() {
             className="my-btn my-btn-primary w-100"
             disabled={loading}
             >
-            {loading ? "Sending..." : "Send Reset Link"}
+            {loading ? <PageLoader /> : toast.success("Send Reset Link")}
             </button>
 
             <p className="mt-3 text-center link-txt">

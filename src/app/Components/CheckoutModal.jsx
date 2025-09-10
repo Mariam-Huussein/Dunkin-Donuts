@@ -1,17 +1,21 @@
-// src/Components/CheckoutModal.jsx
 import { useState } from "react";
 import { Modal } from "react-bootstrap";
 import { auth, db } from "./../../../firebaseconfig";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import toast from "react-hot-toast";
 import PageLoader from "../Pages/PageLoader";
+import { useNavigate } from "react-router-dom";
+
 
 export default function CheckoutModal({ show, onClose, cartItems, itemOptions, clearCart }) {
   const [address, setAddress] = useState("");
+
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
   const handleSubmitOrder = async () => {
-    if (!name.trim() || !address.trim()) {
-      toast.error("Please enter your name and address");
+    if (!address.trim()) {
+      toast.error("Please enter your name or address");
       return;
     }
 
@@ -35,7 +39,6 @@ export default function CheckoutModal({ show, onClose, cartItems, itemOptions, c
 
       toast.success("Order placed successfully!");
       clearCart();
-      setName("");
       setAddress("");
       onClose();
     } catch (err) {
@@ -98,7 +101,7 @@ export default function CheckoutModal({ show, onClose, cartItems, itemOptions, c
                     )}
                     <div>
                       <span className="fw-bold fs-6">Total Price: </span>
-                      ${item.price * (item.amount || 1)}
+                      ${(item.price * (item.amount || 1).toFixed(2))}
                     </div>
                   </div>
                 </div>
@@ -117,7 +120,7 @@ export default function CheckoutModal({ show, onClose, cartItems, itemOptions, c
             {loading ? <PageLoader /> : "Place Order"}
           </button>
         ) : (
-          <button className="my-btn my-btn-primary" onClick={() => window.location.href = "/auth/sign-in"}>
+          <button className="my-btn my-btn-primary" onClick={() => navigate("/auth/sign-in")}>
             Go to Login
           </button>
         )}

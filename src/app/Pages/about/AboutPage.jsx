@@ -28,16 +28,12 @@ export default function AboutPage() {
 
   return (
     <section className="mb-0">
-      {/* <div className="hero-about text-center mb-5">
-        <h2 className="title fw-bold">ABOUT US</h2>
-        <p className="text-muted">America Runs on Dunkin'®</p>
-      </div> */}
       <section className="not-found-sec">
         <div className="hero-not-found hero-about my-5 position-relative">
           <div className="img-hero-holder">
-            <img src="/public/img/big-hero-about.png" className="big-hero-notfound" />
-            <img src="/public/img/imgHero-About.png" className="large-hero-notfound" />
-            <img src="/public/img/mid-hero-about.png" className="mid-hero-notfound" />
+            <img src="img/big-hero-about.png" className="big-hero-notfound" />
+            <img src="img/imgHero-About.png" className="large-hero-notfound" />
+            <img src="img/mid-hero-about.png" className="mid-hero-notfound" />
           </div>
           <Container className="d-flex flex-column w-50 align-items-center text-center justify-content-center not-found-content">
             <h2 className="title about-title fw-bold" style={{ color: "#3e342f" }}>

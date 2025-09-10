@@ -2,8 +2,8 @@
 
 @font-face {
   font-family: "DunkinSansExtraBold";
-  src: url('./../public/fonts/Dunkin Sans Bold.woff2') format('woff2'),
-        url('./../public/fonts/Dunkin Sans Bold.woff') format('woff');
+  src: url('/fonts/Dunkin Sans Bold.woff2') format('woff2'),
+        url('/fonts/Dunkin Sans Bold.woff') format('woff');
   font-weight: 900;
   font-style: normal;
 }

@@ -8,12 +8,12 @@ const NotFound = () => {
       <section className="not-found-sec">
         <div className="hero-not-found my-5 position-relative">
           <div className="img-hero-holder">
-            <img src="/public/img/big-hero-about.png" className="big-hero-notfound" />
-            <img src="/public/img/imgHero-About.png" className="large-hero-notfound" />
-            <img src="/public/img/mid-hero-about.png" className="mid-hero-notfound" />
+            <img src="img/big-hero-about.png" className="big-hero-notfound" />
+            <img src="img/imgHero-About.png" className="large-hero-notfound" />
+            <img src="img/mid-hero-about.png" className="mid-hero-notfound" />
           </div>
           <Container className="d-flex flex-column w-50 align-items-center text-center justify-content-center not-found-content">
-            <img src="/public/img/404Page.png" alt="404 Image" className="notfound-img" />
+            <img src="img/404Page.png" alt="404 Image" className="notfound-img" />
             <h2 className="title fw-bold fs-1" style={{ color: "#3e342f" }}>
               Page Not Found
             </h2>

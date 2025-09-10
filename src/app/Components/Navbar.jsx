@@ -13,7 +13,6 @@ export default function Navbar() {
 
   const savedUser = JSON.parse(localStorage.getItem("user"));
   
-  // cartItems.reduce((acc, item) => acc + item.amount , 0)
   const cartCount = useSelector((state) => state.cart?.cartItems?.length || 0);
   const wishlistCount = useSelector(
     (state) => state.wishlist?.wishlistItems?.length || 0
@@ -51,7 +50,7 @@ export default function Navbar() {
       <nav className="navbar navbar-expand-lg py-3">
         <div className="container d-flex justify-content-between align-items-center">
           <a className="navbar-brand logo mx-lg-auto" href="/">
-            <img src="/public/img/dd-logo.svg" alt="Logo" />
+            <img src="img/dd-logo.svg" alt="Logo" />
           </a>
 
           <div>
@@ -75,23 +74,23 @@ export default function Navbar() {
             <div className="d-flex justify-content-between flex-lg-row flex-column align-items-center w-100 flex-wrap gap-3">
               <ul className="navbar-nav d-flex flex-lg-row flex-column flex-wrap mx-auto gap-lg-4 mb-2 mb-lg-0">
                 <li className="nav-item">
-                  <a className="nav-link" href="/">Home</a>
+                  <Link className="nav-link" to="/">Home</Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="/menu">Menu</a>
+                  <Link className="nav-link" to="/menu">Menu</Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="/about">About</a>
+                  <Link className="nav-link" to="/about">About</Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="/contact">Contact</a>
+                  <Link className="nav-link" to="/contact">Contact</Link>
                 </li>
               </ul>
 
               <div className="d-flex align-items-center gap-3 position-relative">
-                <a
+                <Link
                   className="nav-link nav-serv position-relative"
-                  href="/cart"
+                  to="/cart"
                 >
                   <FaShoppingCart size={20} />
                   {cartCount > 0 && (
@@ -99,11 +98,11 @@ export default function Navbar() {
                       {cartCount}
                     </span>
                   )}
-                </a>
+                </Link>
 
-                <a
+                <Link
                   className="nav-link nav-serv position-relative"
-                  href="/wishlist"
+                  to="/wishlist"
                 >
                   <FaHeart
                     size={20}
@@ -114,7 +113,7 @@ export default function Navbar() {
                       {wishlistCount}
                     </span>
                   )}
-                </a>
+                </Link>
 
               {savedUser ? (
                 <Link className="my-btn my-btn-primary btn-log-out" to="/" onClick={handleLogout}>Log Out</Link>

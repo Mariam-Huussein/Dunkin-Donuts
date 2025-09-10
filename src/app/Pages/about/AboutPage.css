@@ -1,11 +1,11 @@
 :root {
   --white-color: #ffffff;
-  --gray-color: #343A40;
+  --gray-color: #343a40;
   --mute-text: #d8dbdf;
   --black-color: #3e342f;
-  --card: #F8F9FA;
+  --card: #f8f9fa;
   --primary: #e76701;
-  --secondary: #c63663; 
+  --secondary: #c63663;
   --secondary-hoverd: #d62839;
   --highlight-color: #faeff3;
   --border: #f6f5f3;
@@ -14,52 +14,43 @@
   --font-family-text: "Poppins", "Montserrat", sans-serif;
 }
 
-section{
-    padding-block: 10px;
-    margin-bottom: 5rem;
+section {
+  padding-block: 10px;
+  margin-bottom: 5rem;
 }
-/* .hero-about {
-    background-image: url(/public/img/imgHero-About.png);
-    height: 60vh;
-    width: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    align-content: center;
-} */
 
-.hero-about .title{
+.hero-about .title {
   font-size: 5rem;
   word-spacing: -1rem;
 }
 
-section section.not-found-sec{
+section section.not-found-sec {
   min-height: auto !important;
   align-content: center;
 }
 
-.values-container{
+.values-container {
   margin-block: 2rem;
 }
 
-.hero-about{
+.hero-about {
   height: 50vh !important;
   min-height: auto !important;
 }
 
-.hero-about .text-muted{
-    font-size: 2rem;
+.hero-about .text-muted {
+  font-size: 2rem;
 }
 
-.about-row{
-    width: 70%;
-    margin: 0 auto;
+.about-row {
+  width: 70%;
+  margin: 0 auto;
 }
 
 .icon {
-    width: 2.5rem;
-    height: 2.5rem;
-    fill: var(--secondary-hoverd);
+  width: 2.5rem;
+  height: 2.5rem;
+  fill: var(--secondary-hoverd);
 }
 
 .about-card {
@@ -68,8 +59,8 @@ section section.not-found-sec{
   border: none !important;
   box-shadow: 0 0.125rem 1.1rem 0.1rem rgba(0, 0, 0, 0.075);
   background-color: var(--white-color);
-  position: relative; 
-  overflow: hidden; 
+  position: relative;
+  overflow: hidden;
   transition: background 0.5s ease;
 }
 
@@ -89,27 +80,25 @@ section section.not-found-sec{
   height: 100%;
 }
 
-
 .about-card:hover {
   background-color: var(--highlight-color);
-  }
+}
 
 .about-card .icon {
   width: 2.5rem;
   height: 2.5rem;
   fill: var(--secondary-hoverd);
-  transition: transform 0.6s ease; 
+  transition: transform 0.6s ease;
   transform-origin: center;
 }
 
 .about-card:hover .icon {
-  transform: rotate(360deg); 
+  transform: rotate(360deg);
 }
 
 .about-card:hover {
-  background-size: 100% 100%; 
+  background-size: 100% 100%;
 }
-
 
 .about-card h5,
 .about-card p,
@@ -118,7 +107,7 @@ section section.not-found-sec{
   z-index: 2;
 }
 
-@media (max-width:940px) {
+@media (max-width: 940px) {
   section section.not-found-sec {
     height: auto;
   }
@@ -142,7 +131,7 @@ section section.not-found-sec{
     height: 100%;
   }
   .img-hero-holder .abt-img {
-      height: 70%;
+    height: 70%;
   }
 }
 

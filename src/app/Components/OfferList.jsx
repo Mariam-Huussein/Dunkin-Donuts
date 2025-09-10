@@ -21,16 +21,6 @@ const OfferList = () => {
               <OfferCard key={item.id || `offer-${index}`} product={item} />
             ))}
           </div>
-
-
-
-          // <Row className="g-4">
-          //   {offersItems.map((item, index) => (
-          //     <Col xs={12} sm={6} md={4} lg={3} key={item.id || `offer-${index}`}>
-          //       <OfferCard product={item} />
-          //     </Col>
-          //   ))}
-          // </Row>
         ) : (
           <div className="text-center py-5 w-100">
             <p className="text-muted">No items found.</p>

@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "http://Mariam-Huussein.github.io/Dunkin-Donuts",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -12,7 +13,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "homepage": "http://Mariam-Huussein.github.io/Dunkin-Donuts",
     "@reduxjs/toolkit": "^2.9.0",
     "bootstrap": "^5.3.8",
     "firebase": "^12.2.1",

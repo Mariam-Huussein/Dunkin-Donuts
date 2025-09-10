@@ -1,18 +1,3 @@
-:root {
-  --white-color: #ffffff;
-  --gray-color: #343A40;
-  --mute-text: #d8dbdf;
-  --black-color: #3e342f;
-  --card: #F8F9FA;
-  --primary: #e76701;
-  --secondary: #c63663; 
-  --highlight-color: #faeff3;
-  --border: #f6f5f3;
-  --radius: 8px;
-  --font-family-title: "DunkinSansExtraBold", "Montserrat", sans-serif !important;
-  --font-family-text: "Poppins", "Montserrat", sans-serif !important;
-}
-
 footer{
     background-color: var(--secondary);
     color: var(--white-color);
@@ -30,4 +15,36 @@ li,
 li svg,
 .fs-5 svg{
     color: var(--white-color);
+}
+
+footer .footer-link {
+    color: var(--mute-text);
+    text-decoration: none;
+    word-break: break-all;
+}
+
+footer .footer-link:hover {
+  color: var(--primary);
+}
+
+footer ul {
+  padding-left: 0;
+}
+
+footer img {
+  max-width: 150px;
+}
+
+@media (max-width: 767px) {
+  footer .row {
+    text-align: center;
+  }
+  
+  footer .d-flex {
+    justify-content: center !important;
+  }
+  
+  footer .gap-3 {
+    justify-content: center !important;
+  }
 }

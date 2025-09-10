@@ -1,11 +1,6 @@
 .hero {
-  /* background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover; */
   width: 100%;
   min-height: calc(75px + 60vh);
-  /* transform: scale(100%); */
-  /* padding: 6.5rem 0; */
   padding: 0;
   height: fit-content;
   margin-top: 8px;

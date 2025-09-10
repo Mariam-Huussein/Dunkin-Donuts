@@ -1,4 +1,3 @@
-import { Plus } from "lucide-react";
 import { useDispatch } from "react-redux";
 import { addToCart } from "./../state/CartSlice";
 import "./MenuCard.css";

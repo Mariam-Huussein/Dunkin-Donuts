@@ -8,22 +8,22 @@ export default function HeroSection() {
       <div className="hero-container position-relative">
         <div className="hero-img-holder">
           <img
-            src="/public/img/imgHero-Home.png"
+            src="img/imgHero-Home.png"
             alt="Dounts & Sandawish"
             className="large-hero abt-img"
           />
           <img
-            src="/public/img/imgHero-Home-mid.png"
+            src="img/imgHero-Home-mid.png"
             alt="Dounts & Sandawish"
             className="mid-hero abt-img"
           />
           <img
-            src="/public/img/imgHero-Home-sm.png"
+            src="img/imgHero-Home-sm.png"
             alt="Dounts & Sandawish"
             className="sm-hero abt-img"
           />
           <img
-            src="/public/img/imgHero-Home-2.png"
+            src="img/imgHero-Home-2.png"
             alt="Dounts & Sandawish"
             className="xs-hero abt-img"
           />

@@ -16,3 +16,15 @@
   border-radius: 0.5rem;
   color: var(--gray-color);
 }
+
+label.title.form-label {
+  font-size: 0.8rem;
+  word-spacing: -0.2rem;
+  text-transform: capitalize;
+}
+
+.contact-link {
+  text-decoration: none;
+  color: var(--black-color);
+  font-weight: 600;
+}
