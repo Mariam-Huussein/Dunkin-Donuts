@@ -1,0 +1,1 @@
+import{u as f,c as m}from"./ThemeProvider-DZ7cOO8s.js";import{b as p}from"./vendor-Bj2_SvGi.js";import{j as c}from"./index-CXtIXpRz.js";const x=p.forwardRef(({bsPrefix:a,fluid:s=!1,as:o="div",className:t,...e},i)=>{const r=f(a,"container"),n=typeof s=="string"?`-${s}`:"-fluid";return c.jsx(o,{ref:i,...e,className:m(t,s?`${r}${n}`:r)})});x.displayName="Container";export{x as C};
