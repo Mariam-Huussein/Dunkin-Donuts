@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { auth } from "./../../../firebaseconfig";
+import { auth } from "../../../../firebaseconfig";
 import { Link, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { FaEye, FaEyeSlash } from "react-icons/fa";

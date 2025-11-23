@@ -1,7 +1,7 @@
 .cart-page {
   background: var(--card);
   padding: 20px;
-  min-height: 100vh;
+  min-height: 50vh;
 }
 
 .cart-content {
@@ -68,7 +68,8 @@
 }
 
 .empty-cart-img {
-  width: 160px;
+  /* width: 160px; */
+  width: 36%;
   margin-bottom: 20px;
 }
 

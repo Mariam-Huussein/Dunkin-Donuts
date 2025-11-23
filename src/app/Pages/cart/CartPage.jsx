@@ -39,12 +39,15 @@ function Cart() {
     <div className="cart-page">
       {isEmpty && (
         <div className="empty-cart">
-          <img src="img/empty-cart.svg" alt="Empty" className="empty-cart-img" />
-          <h2>
+          <h2 className="title hero-title fs-1 mb-4">
             {activeTab === "cart" ? "Your Cart is empty" : "Your Wishlist is empty"}
           </h2>
-          <Link to="/menu" className="my-btn my-btn-primary">
-            Continue Shopping
+          <h1 className="title hero-title fs-2">
+            No Item To Show
+          </h1>
+          <img src={activeTab === "cart" ? "img/EmptyCart.png" : "img/EmptyWishlist.png"} alt="No Items To Show" className="empty-cart-img" />
+          <Link to="/menu" className="my-btn my-btn-primary fs-5">
+            Back To Menu
           </Link>
         </div>
       )}

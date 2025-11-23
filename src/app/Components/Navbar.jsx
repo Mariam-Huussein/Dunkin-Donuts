@@ -50,7 +50,7 @@ export default function Navbar() {
       <nav className="navbar navbar-expand-lg py-3">
         <div className="container d-flex justify-content-between align-items-center">
           <a className="navbar-brand logo mx-lg-auto" href="/">
-            <img src="img/dd-logo.svg" alt="Logo" />
+            <img src="/img/dd-logo.svg" alt="Logo" />
           </a>
 
           <div>

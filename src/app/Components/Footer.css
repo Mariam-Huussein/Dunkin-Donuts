@@ -1,30 +1,38 @@
-footer{
-    background-color: var(--secondary);
-    color: var(--white-color);
-    width: 100%;
+footer {
+  background-color: #73213b;
+  color: #fefefe;
+  width: 100%;
 }
 
 p,
 a,
 li,
-.footer-link{
-    color: var(--mute-text);
-    text-decoration: none;
+.copy-rights-txt,
+.footer-link {
+  color: var(--mute-text);
+  color: #cbcbcbde;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.copy-rights-txt{
+  color: #fefefe;
 }
 
 li svg,
-.fs-5 svg{
-    color: var(--white-color);
+.fs-5 svg {
+  color: var(--white-color);
 }
 
 footer .footer-link {
-    color: var(--mute-text);
-    text-decoration: none;
-    word-break: break-all;
+  color: var(--mute-text);
+  color: #cbcbcbde;
+  text-decoration: none;
+  word-break: break-all;
 }
 
 footer .footer-link:hover {
-  color: var(--primary);
+  color: var(--highlight-color);
 }
 
 footer ul {
@@ -39,11 +47,11 @@ footer img {
   footer .row {
     text-align: center;
   }
-  
+
   footer .d-flex {
     justify-content: center !important;
   }
-  
+
   footer .gap-3 {
     justify-content: center !important;
   }

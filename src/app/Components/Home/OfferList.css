@@ -25,8 +25,9 @@
     font-size: 0.7rem;
     margin-left: 5px;
 }
-.offer-card{
+.offer-card {
     width: 300px;
+    min-width: 320px !important;
     margin: 1.5rem;
     margin-top: 0;
 }
@@ -36,8 +37,8 @@
         grid-template-columns: repeat(auto-fit, minmax(calc(230px + 3rem), 1fr));
     }
     .offer-card {
-        max-width: 280px;
-        min-width: auto;
+        max-width: 280px !important;
+        min-width: auto !important;
     }
 }
 
@@ -46,8 +47,8 @@
         grid-template-columns: repeat(auto-fit, minmax(calc(200px + 3rem), 1fr));
     }
     .offer-card {
-        max-width: 270px;
-        min-width: auto;
+        max-width: 270px !important;
+        min-width: auto !important;
         height: -webkit-fill-available;
     }
     .offer-card img {
@@ -65,7 +66,7 @@
     }
 
     .offer-card {
-        max-width: 90%;
+        max-width: 90% !important;
     }
 
 }

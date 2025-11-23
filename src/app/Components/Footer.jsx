@@ -7,7 +7,7 @@ import {
   FaEnvelope,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import "./Footer.css"
+import "./Footer.css";
 
 export default function Footer() {
   return (
@@ -16,36 +16,74 @@ export default function Footer() {
         <div className="row gy-4">
           <div className="col-md-3 text-center text-md-start">
             <div className="d-flex align-items-center justify-content-center justify-content-md-start mb-3">
-              <img src="img/dd-logo.svg" alt="DD Logo" />
+              <img src="/img/dd-logo.svg" alt="DD Logo" />
             </div>
             <p className="small">
               Serving fresh, delicious food with a smile. Experience the taste
               that brings people together.
             </p>
             <div className="d-flex gap-3 justify-content-center justify-content-md-start">
-              <a href="#" className="fs-5"><FaFacebook /></a>
-              <a href="#" className="fs-5"><FaInstagram /></a>
-              <a href="#" className="fs-5"><FaTwitter /></a>
+              <a href="#" className="fs-5">
+                <FaFacebook />
+              </a>
+              <a href="#" className="fs-5">
+                <FaInstagram />
+              </a>
+              <a href="#" className="fs-5">
+                <FaTwitter />
+              </a>
             </div>
           </div>
 
           <div className="col-md-3 text-center text-md-start">
             <h5 className="fw-semibold">Quick Links</h5>
             <ul className="list-unstyled">
-              <li><Link to="/" className="footer-link">Home</Link></li>
-              <li><Link to="/menu" className="footer-link">Menu</Link></li>
-              <li><Link to="/about" className="footer-link">About Us</Link></li>
-              <li><Link to="/contact" className="footer-link">Contact</Link></li>
+              <li>
+                <Link to="/" className="footer-link">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link to="/menu" className="footer-link">
+                  Menu
+                </Link>
+              </li>
+              <li>
+                <Link to="/about" className="footer-link">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="footer-link">
+                  Contact
+                </Link>
+              </li>
             </ul>
           </div>
 
           <div className="col-md-3 text-center text-md-start">
             <h5 className="fw-semibold">Menu</h5>
             <ul className="list-unstyled">
-              <li><Link to="/menu#breakfast" className="footer-link">Breakfast</Link></li>
-              <li><Link to="/menu#lunch" className="footer-link">Lunch</Link></li>
-              <li><Link to="/menu#desserts" className="footer-link">Desserts</Link></li>
-              <li><Link to="/menu#beverages" className="footer-link">Beverages</Link></li>
+              <li>
+                <Link to="/menu#breakfast" className="footer-link">
+                  Breakfast
+                </Link>
+              </li>
+              <li>
+                <Link to="/menu#lunch" className="footer-link">
+                  Lunch
+                </Link>
+              </li>
+              <li>
+                <Link to="/menu#desserts" className="footer-link">
+                  Desserts
+                </Link>
+              </li>
+              <li>
+                <Link to="/menu#beverages" className="footer-link">
+                  Beverages
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -53,8 +91,12 @@ export default function Footer() {
             <h5 className="fw-semibold">Contact Info</h5>
             <ul className="list-unstyled small">
               <li className="d-flex align-items-center mb-2 justify-content-center justify-content-md-start">
-                <a href="https://www.google.com/maps?q=543+Southern+Artery,+Quincy,+MA+02169,+USA" className="footer-link">
-                  <FaMapMarkerAlt className="me-2" /> 543 Southern Artery, Quincy, Massachusetts
+                <a
+                  href="https://www.google.com/maps?q=543+Southern+Artery,+Quincy,+MA+02169,+USA"
+                  className="footer-link"
+                >
+                  <FaMapMarkerAlt className="me-2" /> 543 Southern Artery,
+                  Quincy, Massachusetts
                 </a>
               </li>
               <li className="d-flex align-items-center mb-2 justify-content-center justify-content-md-start">
@@ -63,17 +105,39 @@ export default function Footer() {
                 </a>
               </li>
               <li className="d-flex align-items-center justify-content-center justify-content-md-start">
-                <a href="mailto:customerservice@dunkinbrands.com" className="footer-link">
-                  <FaEnvelope className="me-2" /> customerservice@dunkinbrands.com
+                <a
+                  href="mailto:customerservice@dunkinbrands.com"
+                  className="footer-link"
+                >
+                  <FaEnvelope className="me-2" />{" "}
+                  customerservice@dunkinbrands.com
                 </a>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* copyright */}
-        <div className="border-top mt-4 pt-3 text-center">
-          <p className="small mb-0">©2024 DD IP Holder LLC</p>
+        <div className="border-top mt-5 pt-4">
+          <div className="d-flex flex-column flex-md-row justify-content-between align-items-center">
+            <p className="small mb-2 mb-md-0 copy-rights-txt">
+              Non-commercial Project{" "}
+              <span className="d-none d-sm-inline">
+                | For Portfolio Purposes Only
+              </span>
+            </p>
+
+            <p className="small mb-0 copy-rights-txt">
+              @2025 Designed & Developed by{" "}
+              <a
+                href="https://www.linkedin.com/in/eng-mariam-hussein/"
+                target="_blank"
+                rel="noreferrer"
+                className="footer-link"
+              >
+                Mariam Hussein
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </footer>

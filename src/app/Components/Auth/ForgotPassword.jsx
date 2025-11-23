@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { auth } from "./../../../firebaseconfig";
+import { auth } from "./../../../../firebaseconfig";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { Link } from "react-router-dom";
-import PageLoader from "../Pages/PageLoader";
+import PageLoader from "../../Pages/PageLoader";
 import toast from "react-hot-toast";
+import SpinnerOverlay from "../SpinnerOverlay";
 
 function ForgotPassword() {
   const [email, setEmail] = useState("");
@@ -26,14 +27,18 @@ function ForgotPassword() {
     try {
       await sendPasswordResetEmail(auth, email);
       setSuccess("Password reset link sent! Check your email.");
+      toast.success(success);
     } catch (err) {
       console.log("Firebase Error Code:", err.code);
       if (err.code === "auth/user-not-found") {
         setError("No user found with this email.");
+        toast.error(error);
       } else if (err.code === "auth/invalid-email") {
         setError("Invalid email address.");
+        toast.error(error);
       } else {
         setError("Failed to send reset email. Please try again later.");
+        toast.error(error);
       }
     }
 
@@ -42,40 +47,39 @@ function ForgotPassword() {
 
   return (
     <>
-        <SpinnerOverlay loading={loading} />
-        <div
+      <SpinnerOverlay loading={loading} />
+      <div
         className="p-4 border rounded w-100"
         style={{ maxWidth: "400px", margin: "0 auto" }}
-        >
+      >
         <h2 className="title text-center mb-4">Forgot Password</h2>
-        <form onSubmit={handleResetPassword} className="d-flex flex-column gap-3">
-            <div>
+        <form
+          onSubmit={handleResetPassword}
+          className="d-flex flex-column gap-3"
+        >
+          <div>
             <label className="title form-label">Email</label>
             <input
-                type="email"
-                className="form-control"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
+              type="email"
+              className="form-control"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
             />
-            </div>
-
-            {error && <div className="alert alert-danger">{error}</div>}
-            {success && <div className="alert alert-success">{success}</div>}
-
-            <button
+          </div>
+          <button
             type="submit"
             className="my-btn my-btn-primary w-100"
             disabled={loading}
-            >
-            {loading ? <PageLoader /> : toast.success("Send Reset Link")}
-            </button>
+          >
+            {loading ? <PageLoader /> : "Send Reset Link"}
+          </button>
 
-            <p className="mt-3 text-center link-txt">
+          <p className="mt-3 text-center link-txt">
             Remembered your password? <Link to="/auth/sign-in">Sign In</Link>
-            </p>
+          </p>
         </form>
-        </div>
+      </div>
     </>
   );
 }
