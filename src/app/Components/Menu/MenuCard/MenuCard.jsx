@@ -1,7 +1,10 @@
 import { Heart, Star } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../state/CartSlice";
-import { addToWishlist, removeFromWishlist } from "../state/wishlistSlice";
+import { addToCart } from "../../../store/CartSlice";
+import {
+  addToWishlist,
+  removeFromWishlist,
+} from "../../../store/wishlistSlice";
 import "./MenuCard.css";
 import { toast } from "react-hot-toast";
 
@@ -35,7 +38,9 @@ export default function MenuCard({ product }) {
         />
         <div className="category-badge">{product.category}</div>
         <button className="wishlist-btn" onClick={handleWishlistToggle}>
-          <Heart className={`heart-icon ${inWishlist ? "wishlist-active" : ""}`} />
+          <Heart
+            className={`heart-icon ${inWishlist ? "wishlist-active" : ""}`}
+          />
         </button>
       </div>
 
@@ -52,7 +57,9 @@ export default function MenuCard({ product }) {
 
         <div className="menu-footer">
           <span className="menu-price">${product.price.toFixed(2)}</span>
-          <button className="my-btn my-btn-primary" onClick={handleAddToCart}>Add to Cart</button>
+          <button className="my-btn my-btn-primary" onClick={handleAddToCart}>
+            Add to Cart
+          </button>
         </div>
       </div>
     </div>

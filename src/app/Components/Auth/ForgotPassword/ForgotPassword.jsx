@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { auth } from "./../../../../firebaseconfig";
+import { auth } from "../../../../../firebaseconfig";
 import { sendPasswordResetEmail } from "firebase/auth";
 import { Link } from "react-router-dom";
-import PageLoader from "../../Pages/PageLoader";
+import PageLoader from "../../Common/Loader/Loader";
 import toast from "react-hot-toast";
-import SpinnerOverlay from "../SpinnerOverlay";
+import SpinnerOverlay from "../../Common/Loader/SpinnerOverlay";
 
 function ForgotPassword() {
   const [email, setEmail] = useState("");

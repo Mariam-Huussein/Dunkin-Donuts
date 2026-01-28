@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
-import SignIn from "../../Components/Auth/SignIn";
-import SignUp from "../../Components/Auth/SignUp";
+import SignIn from "../../Components/Auth/SignIn/SignIn";
+import SignUp from "../../Components/Auth/SignUp/SignUp";
 import "./AuthPage.css";
-import ForgotPassword from "../../Components/Auth/ForgotPassword";
+import ForgotPassword from "../../Components/Auth/ForgotPassword/ForgotPassword";
 
 function Auth() {
   const { type } = useParams();

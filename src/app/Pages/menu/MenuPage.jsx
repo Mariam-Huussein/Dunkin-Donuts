@@ -1,8 +1,8 @@
 import { useState, useMemo } from "react";
-import MenuCard from "./../../Components/MenuCard";
+import MenuCard from "../../Components/Menu/MenuCard/MenuCard";
 import "./Menu.css";
-import menuItems from "./../../../data/menu.json";
-import SearchAndFilter from "../../Components/SearchAndFilter";
+import menuItems from "../../../data/menu.json";
+import SearchAndFilter from "../../Components/Menu/SearchAndFilter/SearchAndFilter";
 
 export default function MenuPage() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -20,7 +20,7 @@ export default function MenuPage() {
 
     if (activeCategory !== "All") {
       filtered = filtered.filter((item) =>
-        item.category.includes(activeCategory)
+        item.category.includes(activeCategory),
       );
     }
 
@@ -28,7 +28,7 @@ export default function MenuPage() {
       filtered = filtered.filter(
         (item) =>
           item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          item.description.toLowerCase().includes(searchTerm.toLowerCase())
+          item.description.toLowerCase().includes(searchTerm.toLowerCase()),
       );
     }
 

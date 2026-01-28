@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import SpinnerOverlay from "./../Components/SpinnerOverlay";
+import SpinnerOverlay from "./SpinnerOverlay";
 
 export default function PageLoader({ children }) {
   const location = useLocation();

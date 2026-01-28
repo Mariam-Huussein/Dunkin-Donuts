@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
-import { addToCart } from "../../state/CartSlice";
-import "./../MenuCard.css";
-import "./OfferList.css";
+import { addToCart } from "../../../store/CartSlice";
+import "./../../Home/OfferList/OfferList.css";
+import "./../../Menu/MenuCard/MenuCard.css";
 import { toast } from "react-hot-toast";
 
 const OfferCard = ({ product }) => {
@@ -17,7 +17,7 @@ const OfferCard = ({ product }) => {
         ...product,
         price: priceToUse,
         quantity: 1,
-      })
+      }),
     );
     toast.success(`${product.name} was added to cart`);
   };

@@ -1,7 +1,7 @@
 import { FaRegTrashAlt } from "react-icons/fa";
 import { FaMinus, FaPlus } from "react-icons/fa6";
 import { useDispatch } from "react-redux";
-import { decreaseAmount, increaseAmount } from "./../state/CartSlice";
+import { decreaseAmount, increaseAmount } from "../../../store/CartSlice";
 import { useState } from "react";
 import "./ProductCartItem.css";
 

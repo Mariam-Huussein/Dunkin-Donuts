@@ -1,15 +1,21 @@
 import { useState } from "react";
 import { Modal } from "react-bootstrap";
-import { auth, db } from "./../../../firebaseconfig";
+import { auth, db } from "../../../../../firebaseconfig";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import toast from "react-hot-toast";
-import PageLoader from "../Pages/PageLoader";
+import PageLoader from "../Loader/Loader";
 import { useNavigate } from "react-router-dom";
 
-export default function CheckoutModal({ show, onClose, cartItems, itemOptions, clearCart }) {
+export default function CheckoutModal({
+  show,
+  onClose,
+  cartItems,
+  itemOptions,
+  clearCart,
+}) {
   const [address, setAddress] = useState("");
   const [loading, setLoading] = useState(false);
-  
+
   const [promoCode, setPromoCode] = useState("");
   const [discount, setDiscount] = useState(0);
   const [promoMessage, setPromoMessage] = useState("");
@@ -18,7 +24,7 @@ export default function CheckoutModal({ show, onClose, cartItems, itemOptions, c
   const navigate = useNavigate();
 
   const subTotal = cartItems.reduce((acc, item) => {
-    return acc + (item.price * (item.amount || 1));
+    return acc + item.price * (item.amount || 1);
   }, 0);
 
   const finalTotal = subTotal - discount;
@@ -27,7 +33,7 @@ export default function CheckoutModal({ show, onClose, cartItems, itemOptions, c
     if (isCodeApplied) return;
 
     if (promoCode.trim().toUpperCase() === "DUNKIN20") {
-      const discountValue = subTotal * 0.20;
+      const discountValue = subTotal * 0.2;
       setDiscount(discountValue);
       setPromoMessage("Promo code applied successfully!");
       setIsCodeApplied(true);
@@ -60,7 +66,7 @@ export default function CheckoutModal({ show, onClose, cartItems, itemOptions, c
           flavor: itemOptions[item.id] || "",
         })),
         address: address.trim(),
-        
+
         subTotal: Number(subTotal.toFixed(2)),
         discount: Number(discount.toFixed(2)),
         totalPrice: Number(finalTotal.toFixed(2)),
@@ -76,7 +82,7 @@ export default function CheckoutModal({ show, onClose, cartItems, itemOptions, c
       setIsCodeApplied(false);
       setPromoCode("");
       setPromoMessage("");
-      
+
       onClose();
     } catch (err) {
       console.error("Error placing order:", err);
@@ -98,7 +104,9 @@ export default function CheckoutModal({ show, onClose, cartItems, itemOptions, c
         {auth.currentUser ? (
           <>
             <div className="mb-2">
-              <label className="title form-label" style={{ fontSize: "1rem" }}>Name</label>
+              <label className="title form-label" style={{ fontSize: "1rem" }}>
+                Name
+              </label>
               <input
                 type="text"
                 className="form-control"
@@ -107,7 +115,9 @@ export default function CheckoutModal({ show, onClose, cartItems, itemOptions, c
               />
             </div>
             <div className="mb-2">
-              <label className="title form-label" style={{ fontSize: "1rem" }}>Address</label>
+              <label className="title form-label" style={{ fontSize: "1rem" }}>
+                Address
+              </label>
               <input
                 type="text"
                 className="form-control"
@@ -120,19 +130,38 @@ export default function CheckoutModal({ show, onClose, cartItems, itemOptions, c
 
             <hr />
             <h6 className="title fs-6">Items:</h6>
-            <div style={{ maxHeight: "200px", overflowY: "auto", border: "1px solid #ddd", padding: "10px", borderRadius: "5px", marginBottom: "20px" }}>
+            <div
+              style={{
+                maxHeight: "200px",
+                overflowY: "auto",
+                border: "1px solid #ddd",
+                padding: "10px",
+                borderRadius: "5px",
+                marginBottom: "20px",
+              }}
+            >
               {cartItems.map((item) => (
-                <div key={item.id} className="cart-form-item d-flex align-items-center mb-2">
+                <div
+                  key={item.id}
+                  className="cart-form-item d-flex align-items-center mb-2"
+                >
                   <img
                     src={item.image}
                     alt={item.name}
-                    style={{ width: "50px", height: "50px", objectFit: "scale-down", marginRight: "10px", borderRadius: "5px" }}
+                    style={{
+                      width: "50px",
+                      height: "50px",
+                      objectFit: "scale-down",
+                      marginRight: "10px",
+                      borderRadius: "5px",
+                    }}
                   />
                   <div className="flex-grow-1">
                     <div className="title fs-6">{item.name}</div>
                     <div className="small text-muted">
-                        Qty: {item.amount} | Price: ${item.price} 
-                        {itemOptions[item.id] && ` | Flavor: ${itemOptions[item.id]}`}
+                      Qty: {item.amount} | Price: ${item.price}
+                      {itemOptions[item.id] &&
+                        ` | Flavor: ${itemOptions[item.id]}`}
                     </div>
                   </div>
                   <div className="fw-bold">
@@ -143,62 +172,86 @@ export default function CheckoutModal({ show, onClose, cartItems, itemOptions, c
             </div>
 
             <div className="mb-3 p-3 bg-light rounded">
-                <label className="form-label fw-bold small">Have a Promo Code?</label>
-                <div className="input-group mb-1">
-                    <input 
-                        type="text" 
-                        className="form-control" 
-                        placeholder="Enter a promo code"
-                        value={promoCode}
-                        onChange={(e) => setPromoCode(e.target.value)}
-                        disabled={isCodeApplied}
-                    />
-                    <button 
-                        className="btn btn-dark" 
-                        onClick={handleApplyCoupon}
-                        disabled={isCodeApplied}
-                    >
-                        Apply
-                    </button>
-                </div>
-                {promoMessage && (
-                    <small className={isCodeApplied ? "text-success fw-bold" : "text-danger fw-bold"}>
-                        {promoMessage}
-                    </small>
-                )}
+              <label className="form-label fw-bold small">
+                Have a Promo Code?
+              </label>
+              <div className="input-group mb-1">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Enter a promo code"
+                  value={promoCode}
+                  onChange={(e) => setPromoCode(e.target.value)}
+                  disabled={isCodeApplied}
+                />
+                <button
+                  className="btn btn-dark"
+                  onClick={handleApplyCoupon}
+                  disabled={isCodeApplied}
+                >
+                  Apply
+                </button>
+              </div>
+              {promoMessage && (
+                <small
+                  className={
+                    isCodeApplied
+                      ? "text-success fw-bold"
+                      : "text-danger fw-bold"
+                  }
+                >
+                  {promoMessage}
+                </small>
+              )}
             </div>
 
             <div className="border-top pt-2">
-                <div className="d-flex justify-content-between mb-1">
-                    <span>Subtotal:</span>
-                    <span>${subTotal.toFixed(2)}</span>
+              <div className="d-flex justify-content-between mb-1">
+                <span>Subtotal:</span>
+                <span>${subTotal.toFixed(2)}</span>
+              </div>
+              {isCodeApplied && (
+                <div className="d-flex justify-content-between mb-1 text-success">
+                  <span>Discount (20%):</span>
+                  <span>- ${discount.toFixed(2)}</span>
                 </div>
-                {isCodeApplied && (
-                    <div className="d-flex justify-content-between mb-1 text-success">
-                        <span>Discount (20%):</span>
-                        <span>- ${discount.toFixed(2)}</span>
-                    </div>
-                )}
-                <div className="d-flex justify-content-between mt-2 pt-2 border-top">
-                    <span className="h5 fw-bold">Total:</span>
-                    <span className="h5 fw-bold text-primary">${finalTotal.toFixed(2)}</span>
-                </div>
+              )}
+              <div className="d-flex justify-content-between mt-2 pt-2 border-top">
+                <span className="h5 fw-bold">Total:</span>
+                <span className="h5 fw-bold text-primary">
+                  ${finalTotal.toFixed(2)}
+                </span>
+              </div>
             </div>
-
           </>
         ) : (
-          <p className="fs-6 fw-bolder text-muted text-center">You need to log in to place an order.</p>
+          <p className="fs-6 fw-bolder text-muted text-center">
+            You need to log in to place an order.
+          </p>
         )}
       </Modal.Body>
 
       <Modal.Footer>
-        <button className="my-btn my-btn-outline" onClick={onClose}>Cancel</button>
+        <button className="my-btn my-btn-outline" onClick={onClose}>
+          Cancel
+        </button>
         {auth.currentUser ? (
-          <button className="my-btn my-btn-primary" onClick={handleSubmitOrder} disabled={loading}>
-            {loading ? <PageLoader /> : `Place Order ($${finalTotal.toFixed(2)})`}
+          <button
+            className="my-btn my-btn-primary"
+            onClick={handleSubmitOrder}
+            disabled={loading}
+          >
+            {loading ? (
+              <PageLoader />
+            ) : (
+              `Place Order ($${finalTotal.toFixed(2)})`
+            )}
           </button>
         ) : (
-          <button className="my-btn my-btn-primary" onClick={() => navigate("/auth/sign-in")}>
+          <button
+            className="my-btn my-btn-primary"
+            onClick={() => navigate("/auth/sign-in")}
+          >
             Go to Login
           </button>
         )}

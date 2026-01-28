@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
-import "./../HeroSection.css";
-import "./../HeroImage.css"
-
+import "./../../Common/Hero/HeroSection.css"
+import "./../../Common/Hero/HeroImage.css"
 export default function HeroSection() {
   return (
     <section className="hero">

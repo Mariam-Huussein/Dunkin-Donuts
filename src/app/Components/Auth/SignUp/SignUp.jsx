@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { auth } from "../../../../firebaseconfig";
+import { auth } from "../../../../../firebaseconfig";
 import { Link, useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
@@ -60,7 +60,7 @@ function SignUp() {
       const userCredential = await createUserWithEmailAndPassword(
         auth,
         email,
-        password
+        password,
       );
       await updateProfile(userCredential.user, { displayName: name });
       setSuccess("Account created successfully! ");

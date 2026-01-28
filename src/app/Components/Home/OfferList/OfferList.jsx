@@ -1,5 +1,5 @@
-import OfferCard from "./OfferCard";
-import offersItems from "../../../data/offer.json";
+import OfferCard from "../../Common/OfferCard/OfferCard";
+import offersItems from "../../../../data/offer.json";
 import { Link } from "react-router-dom";
 import "./OfferList.css";
 
