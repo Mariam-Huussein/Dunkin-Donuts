@@ -1,55 +1,28 @@
-import { useState, useMemo } from "react";
 import MenuCard from "../../Components/Menu/MenuCard/MenuCard";
 import "./Menu.css";
-import menuItems from "../../../data/menu.json";
 import SearchAndFilter from "../../Components/Menu/SearchAndFilter/SearchAndFilter";
+import { useMenuLogic } from "../../hooks/useMenuLogic";
+import Pagination from "../../Components/Menu/Pagination/Pagination";
 
 export default function MenuPage() {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [sortBy, setSortBy] = useState("name");
-  const [activeCategory, setActiveCategory] = useState("All");
-
-  const categories = useMemo(() => {
-    const allCategories = menuItems.flatMap((item) => item.category);
-    const uniqueCategories = ["All", ...new Set(allCategories)];
-    return uniqueCategories;
-  }, []);
-
-  const filteredAndSortedItems = useMemo(() => {
-    let filtered = menuItems;
-
-    if (activeCategory !== "All") {
-      filtered = filtered.filter((item) =>
-        item.category.includes(activeCategory),
-      );
-    }
-
-    if (searchTerm) {
-      filtered = filtered.filter(
-        (item) =>
-          item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          item.description.toLowerCase().includes(searchTerm.toLowerCase()),
-      );
-    }
-
-    filtered.sort((a, b) => {
-      switch (sortBy) {
-        case "price-low":
-          return a.price - b.price;
-        case "price-high":
-          return b.price - a.price;
-        case "popularity":
-          return b.rating - a.rating;
-        default:
-          return a.name.localeCompare(b.name);
-      }
-    });
-
-    return filtered;
-  }, [searchTerm, sortBy, activeCategory]);
+  const {
+    searchTerm,
+    setSearchTerm,
+    sortBy,
+    setSortBy,
+    activeCategory,
+    setActiveCategory,
+    categories,
+    currentItems,
+    totalItemsCount,
+    currentPage,
+    totalPages,
+    handlePageChange,
+    resetFilters,
+  } = useMenuLogic();
 
   return (
-    <div className="bg-light min-vh-100 p-5">
+    <div className="bg-light min-vh-100 p-4 p-lg-4">
       <div className="text-center mb-5">
         <h1 className="title fw-bold">Our Menu</h1>
         <p className="text-muted fw-semibold">
@@ -70,25 +43,21 @@ export default function MenuPage() {
 
       {/* Results */}
       <p className="text-muted mb-3">
-        Showing {filteredAndSortedItems.length} items
+        Showing {currentItems.length} of {totalItemsCount} items
         {searchTerm && ` for "${searchTerm}"`}
         {activeCategory !== "All" && ` in ${activeCategory}`}
       </p>
 
       <div className="menu-grid px-3">
-        {filteredAndSortedItems.length > 0 ? (
-          filteredAndSortedItems.map((item) => (
-            <MenuCard key={item.id} product={item} />
-          ))
+        {currentItems.length > 0 ? (
+          currentItems.map((item) => <MenuCard key={item.id} product={item} />)
         ) : (
           <div className="text-center py-5 w-100">
             <p className="text-muted">No items found.</p>
             <button
               className="my-btn-primary"
               onClick={() => {
-                setSearchTerm("");
-                setActiveCategory("All");
-                setSortBy("name");
+                resetFilters();
               }}
             >
               Clear Filters
@@ -96,6 +65,12 @@ export default function MenuPage() {
           </div>
         )}
       </div>
+      {/* Pagination Controls */}
+      <Pagination 
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={handlePageChange}
+      />
     </div>
   );
 }

@@ -1,31 +1,33 @@
 import { Link } from "react-router-dom";
-import "./../../Common/Hero/HeroSection.css"
-import "./../../Common/Hero/HeroImage.css"
+import "./../../Common/Hero/HeroSection.css";
+import "./../../Common/Hero/HeroImage.css";
 export default function HeroSection() {
+  const stats = [
+    { number: "500+", label: "Happy Customers" },
+    { number: "50+", label: "Menu Items" },
+    { number: "30min", label: "Delivery Time" },
+  ];
+
   return (
     <section className="hero">
       <div className="hero-container position-relative">
+        {/* Images Area */}
         <div className="hero-img-holder">
-          <img
-            src="img/imgHero-Home.png"
-            alt="Dounts & Sandawish"
-            className="large-hero abt-img"
-          />
-          <img
-            src="img/imgHero-Home-mid.png"
-            alt="Dounts & Sandawish"
-            className="mid-hero abt-img"
-          />
-          <img
-            src="img/imgHero-Home-sm.png"
-            alt="Dounts & Sandawish"
-            className="sm-hero abt-img"
-          />
-          <img
-            src="img/imgHero-Home-2.png"
-            alt="Dounts & Sandawish"
-            className="xs-hero abt-img"
-          />
+          <picture>
+            <source
+              media="(max-width: 576px)"
+              srcSet="/img/imgHero-Home-2.png"
+            />
+            <source
+              media="(max-width: 992px)"
+              srcSet="/img/imgHero-Home-sm.png"
+            />
+            <img
+              src="/img/imgHero-Home-mid.png"
+              alt="Donuts & Sandwich"
+              className="hero-main-img"
+            />
+          </picture>
         </div>
         <div className="container">
           <div className="hero-content">
@@ -46,17 +48,13 @@ export default function HeroSection() {
             </div>
 
             <div className="stats">
-              <div className="stat">
-                <div className="stat-number">500+</div>
-                <div className="stat-label">Happy Customers</div>
-              </div>
-              <div className="stat">
-                <div className="stat-number">50+</div>
-                <div className="stat-label">Menu Items</div>
-              </div>
-              <div className="stat">
-                <div className="stat-number">30min</div>
-                <div className="stat-label">Delivery Time</div>
+              <div className="stats">
+                {stats.map((stat, index) => (
+                  <div className="stat" key={index}>
+                    <div className="stat-number">{stat.number}</div>
+                    <div className="stat-label">{stat.label}</div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

@@ -1,32 +1,11 @@
 import { Heart, Star } from "lucide-react";
-import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../../../store/CartSlice";
-import {
-  addToWishlist,
-  removeFromWishlist,
-} from "../../../store/wishlistSlice";
 import "./MenuCard.css";
-import { toast } from "react-hot-toast";
+import { useAddToCart } from "../../../hooks/useAddToCart";
+import { useWishlist } from "../../../hooks/useWishlist";
 
 export default function MenuCard({ product }) {
-  const dispatch = useDispatch();
-  const { wishlistItems } = useSelector((state) => state.wishlist);
-  const inWishlist = wishlistItems.some((item) => item.id === product.id);
-
-  const handleAddToCart = () => {
-    dispatch(addToCart({ ...product, quantity: 1 }));
-    toast.success(`${product.name} was added to cart`);
-  };
-
-  const handleWishlistToggle = () => {
-    if (inWishlist) {
-      dispatch(removeFromWishlist(product));
-      toast.error(`${product.name} removed from wishlist`);
-    } else {
-      dispatch(addToWishlist(product));
-      toast.success(`${product.name} added to wishlist`);
-    }
-  };
+  const { addItemToCart } = useAddToCart();
+  const { inWishlist, toggleWishlist } = useWishlist(product);
 
   return (
     <div className="menu-card">
@@ -37,7 +16,7 @@ export default function MenuCard({ product }) {
           className="menu-image"
         />
         <div className="category-badge">{product.category}</div>
-        <button className="wishlist-btn" onClick={handleWishlistToggle}>
+        <button className="wishlist-btn" onClick={toggleWishlist}>
           <Heart
             className={`heart-icon ${inWishlist ? "wishlist-active" : ""}`}
           />
@@ -57,7 +36,10 @@ export default function MenuCard({ product }) {
 
         <div className="menu-footer">
           <span className="menu-price">${product.price.toFixed(2)}</span>
-          <button className="my-btn my-btn-primary" onClick={handleAddToCart}>
+          <button
+            className="my-btn my-btn-primary"
+            onClick={() => addItemToCart(product)}
+          >
             Add to Cart
           </button>
         </div>

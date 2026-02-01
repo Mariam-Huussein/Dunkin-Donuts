@@ -15,13 +15,12 @@
 
 .form-select:focus {
   border-color: var(--primary);
-  box-shadow: 0 0 0 0.2rem rgba(231,103,1,0.25);
+  box-shadow: 0 0 0 0.2rem rgba(231, 103, 1, 0.25);
 }
 
 .form-select:hover {
   border-color: var(--secondary-hoverd);
 }
-
 
 .menu-card .card-body {
   display: flex;
@@ -41,13 +40,9 @@
 .menu-grid {
   display: grid;
   gap: 1.5rem;
-  grid-template-columns: repeat(auto-fill, minmax(290px, auto)) ;
+  grid-template-columns: repeat(auto-fill, minmax(290px, auto));
   justify-items: center;
   justify-content: center;
-}
-
-.menu-card {
-  min-width: 100% !important;
 }
 
 .wishlist-btn {
@@ -103,9 +98,9 @@
   }
   .menu-card {
     min-width: unset;
-    height: -webkit-fill-available;
+    height: 380px;
     max-height: 440px;
-    width: 90%;
+    width: 100%;
     max-width: 100%;
   }
   .menu-card img {
@@ -113,5 +108,12 @@
   }
   .desc-scroll {
     -webkit-line-clamp: unset;
+  }
+}
+
+@media (max-width: 265px) {
+  .menu-card {
+    height: 400px;
+    width: 90%;
   }
 }

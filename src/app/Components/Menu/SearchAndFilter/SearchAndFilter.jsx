@@ -16,6 +16,24 @@ const SearchAndFilter = ({
   setActiveCategory,
   categories = [],
 }) => {
+  const commonInputStyles = {
+    "& .MuiOutlinedInput-root": {
+      borderRadius: "var(--radius)",
+      backgroundColor: "var(--white-color)",
+      "&:hover fieldset": {
+        borderColor: "var(--secondary)",
+      },
+      "&.Mui-focused fieldset": {
+        borderColor: "var(--secondary)",
+      },
+    },
+    "& .MuiInputLabel-root": {
+      color: "var(--gray-color)",
+    },
+    "& .MuiInputLabel-root.Mui-focused": {
+      color: "var(--primary)",
+    },
+  };
   return (
     <Box
       sx={{
@@ -26,7 +44,7 @@ const SearchAndFilter = ({
         boxShadow: "0 4px 10px rgba(0,0,0,0.05)",
       }}
     >
-      {/* 🔍 Search & Sort */}
+      {/* Search & Sort */}
       <Box
         sx={{
           display: "flex",
@@ -44,26 +62,7 @@ const SearchAndFilter = ({
           onChange={(e) => setSearchTerm(e.target.value)}
           sx={{
             width: { xs: "100%", lg: "50%" },
-            "& .MuiOutlinedInput-root": {
-              borderRadius: "var(--radius)",
-              backgroundColor: "var(--white-color)",
-              border: "1px solid var(--border)",
-              transition: "border-color 0.3s, box-shadow 0.3s",
-              "&:hover fieldset": {
-                borderColor: "var(--secondary)",
-                outlineColor: "var(--secondary)",
-              },
-              "&.Mui-focused fieldset": {
-                borderColor: "var(--secondary)",
-                outlineColor: "var(--secondary)",
-              },
-            },
-            "& .MuiInputLabel-root": {
-              color: "var(--gray-color)",
-            },
-            "& .MuiInputLabel-root.Mui-focused": {
-              color: "var(--primary)",
-            },
+            ...commonInputStyles,
           }}
         />
 
@@ -72,25 +71,7 @@ const SearchAndFilter = ({
           sx={{
             width: { xs: "100%", lg: "auto" },
             minWidth: "200px",
-            "& .MuiOutlinedInput-root": {
-              borderRadius: "var(--radius)",
-              backgroundColor: "var(--white-color)",
-              border: "1px solid var(--border)",
-              "&:hover fieldset": {
-                borderColor: "var(--secondary)",
-                outlineColor: "var(--secondary)",
-              },
-              "&.Mui-focused fieldset": {
-                borderColor: "var(--secondary)",
-                outlineColor: "var(--secondary)",
-              },
-            },
-            "& .MuiInputLabel-root": {
-              color: "var(--gray-color)",
-            },
-            "& .MuiInputLabel-root.Mui-focused": {
-              color: "var(--primary)",
-            },
+            ...commonInputStyles,
           }}
         >
           <InputLabel color="var(--gray-color)">Sort by</InputLabel>
@@ -106,35 +87,17 @@ const SearchAndFilter = ({
           </Select>
         </FormControl>
 
-        {/* 🧁 Categories */}
+        {/* Categories */}
         <FormControl
           sx={{
             width: { xs: "100%", lg: "auto" },
             minWidth: "200px",
-            "& .MuiOutlinedInput-root": {
-              borderRadius: "var(--radius)",
-              backgroundColor: "var(--white-color)",
-              border: "1px solid var(--border)",
-              "&:hover fieldset": {
-                borderColor: "var(--secondary)",
-                outlineColor: "var(--secondary)",
-              },
-              "&.Mui-focused fieldset": {
-                borderColor: "var(--secondary)",
-                outlineColor: "var(--secondary)",
-              },
-            },
-            "& .MuiInputLabel-root": {
-              color: "var(--gray-color)",
-            },
-            "& .MuiInputLabel-root.Mui-focused": {
-              color: "var(--primary)",
-            },
+            ...commonInputStyles,
           }}
         >
           <InputLabel>Category</InputLabel>
           <Select
-            value={activeCategory}
+            value={activeCategory ? activeCategory : "All"}
             label="Category"
             onChange={(e) => setActiveCategory(e.target.value)}
           >

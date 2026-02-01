@@ -1,26 +1,9 @@
-import { useDispatch } from "react-redux";
-import { addToCart } from "../../../store/CartSlice";
-import "./../../Home/OfferList/OfferList.css";
-import "./../../Menu/MenuCard/MenuCard.css";
-import { toast } from "react-hot-toast";
+import "../../Menu/MenuCard/MenuCard.css";
+import "./OfferList.css";
+import { useAddToCart } from "../../../hooks/useAddToCart";
 
 const OfferCard = ({ product }) => {
-  const dispatch = useDispatch();
-
-  if (!product) return null;
-
-  const handleAddToCart = () => {
-    const priceToUse = product.newPrice ?? product.price;
-
-    dispatch(
-      addToCart({
-        ...product,
-        price: priceToUse,
-        quantity: 1,
-      }),
-    );
-    toast.success(`${product.name} was added to cart`);
-  };
+  const { addItemToCart } = useAddToCart();
 
   return (
     <div className="menu-card offer-card">
@@ -53,7 +36,7 @@ const OfferCard = ({ product }) => {
                 : ""}
             </span>
           </span>
-          <button className="my-btn my-btn-primary" onClick={handleAddToCart}>
+          <button className="my-btn my-btn-primary" onClick={() => addItemToCart(product)}>
             Add to Cart
           </button>
         </div>

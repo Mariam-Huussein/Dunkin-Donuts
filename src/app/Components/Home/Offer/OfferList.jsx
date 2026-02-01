@@ -1,7 +1,6 @@
-import OfferCard from "../../Common/OfferCard/OfferCard";
+import OfferCard from "./OfferCard";
 import offersItems from "../../../../data/offer.json";
 import { Link } from "react-router-dom";
-import "./OfferList.css";
 
 const OfferList = () => {
   return (
@@ -15,7 +14,7 @@ const OfferList = () => {
       </div>
 
       {offersItems && offersItems.length > 0 ? (
-        <div className="offers-grid">
+        <div className="offers-grid row-gap-3 row-gap-lg-0">
           {offersItems.map((item, index) => (
             <OfferCard key={item.id || `offer-${index}`} product={item} />
           ))}

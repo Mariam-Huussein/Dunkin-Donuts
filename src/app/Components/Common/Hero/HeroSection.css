@@ -25,7 +25,8 @@
   text-transform: uppercase;
   color: var(--black-color);
   margin-top: 1.25rem;
-  word-spacing: -18px;
+  word-spacing: -24px;
+  font-size: 3.5rem;
 }
 
 .hero-title .highlight {

@@ -1,7 +1,7 @@
 import ProductCartItem from "../../Components/Cart/ProductCartItem/ProductCartItem";
 import CheckoutModal from "../../Components/Common/Modal/CheckoutModal";
 import "./CartPage.css";
-import { useCartLogic } from "../../logic/useCartPageLogic";
+import { useCartLogic } from "../../hooks/useCartPageLogic";
 
 export default function CartPage() {
   const {

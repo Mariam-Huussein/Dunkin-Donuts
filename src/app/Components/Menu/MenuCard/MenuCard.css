@@ -3,6 +3,7 @@
   border: 1px solid var(--border);
   border-radius: 12px;
   min-width: 320px;
+  min-width: 100% !important;
   overflow: hidden;
   transition: box-shadow 0.3s ease;
   min-height: 384px;
