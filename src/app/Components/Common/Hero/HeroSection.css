@@ -9,7 +9,7 @@
 .hero .container {
   display: flex;
   justify-content: center;
-  max-width: 44%;
+  max-width: 60%;
   z-index: 9999;
 }
 
@@ -37,7 +37,7 @@
   font-size: 1.125rem;
   color: var(--gray-color);
   font-weight: 400;
-  width: 90%;
+  width: 75%;
 }
 
 .hero-buttons {

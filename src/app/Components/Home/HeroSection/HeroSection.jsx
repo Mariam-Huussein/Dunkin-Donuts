@@ -48,7 +48,7 @@ export default function HeroSection() {
             </div>
 
             <div className="stats">
-              <div className="stats">
+              <div className="stats flex-wrap justify-content-center">
                 {stats.map((stat, index) => (
                   <div className="stat" key={index}>
                     <div className="stat-number">{stat.number}</div>

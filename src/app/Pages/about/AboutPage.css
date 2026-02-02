@@ -1,22 +1,5 @@
-:root {
-  --white-color: #ffffff;
-  --gray-color: #343a40;
-  --mute-text: #d8dbdf;
-  --black-color: #3e342f;
-  --card: #f8f9fa;
-  --primary: #e76701;
-  --secondary: #c63663;
-  --secondary-hoverd: #d62839;
-  --highlight-color: #faeff3;
-  --border: #f6f5f3;
-  --radius: 8px;
-  --font-family-title: "DunkinSansExtraBold", "Montserrat", sans-serif !important;
-  --font-family-text: "Poppins", "Montserrat", sans-serif;
-}
-
-section {
-  padding-block: 10px;
-  margin-bottom: 5rem;
+/* .hero-about-container {
+  background-color: var(--card) !important;
 }
 
 .hero-about .title {
@@ -61,7 +44,7 @@ section section.not-found-sec {
   background-color: var(--white-color);
   position: relative;
   overflow: hidden;
-  transition: background 0.5s ease;
+  transition: background-color 0.5s ease;
 }
 
 .about-card::before {
@@ -107,6 +90,10 @@ section section.not-found-sec {
   z-index: 2;
 }
 
+.about-title {
+  color: #3e342f;
+}
+
 @media (max-width: 940px) {
   section section.not-found-sec {
     height: auto;
@@ -125,7 +112,7 @@ section section.not-found-sec {
 
 @media (max-width: 835px) {
   .hero-about {
-    height: 40vh !important;
+    height: 60vh !important;
   }
   .img-hero-holder {
     height: 100%;
@@ -141,5 +128,252 @@ section section.not-found-sec {
   }
   .hero-about .text-muted {
     font-size: 1rem !important;
+  }
+} */
+
+/* =========================================
+   1. Base Variables & Layout
+   ========================================= */
+.hero-about-container {
+  background-color: var(--card) !important;
+  margin-bottom: 0;
+  overflow: hidden;
+}
+
+.not-found-sec {
+  position: relative;
+  width: 100%;
+  min-height: 60vh;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-not-found {
+  width: 100%;
+  height: 100%;
+  min-height: 70vh !important;
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+/* =========================================
+   2. Hero Image Handling (Updated for <picture>)
+   ========================================= */
+.img-hero-holder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+  align-items: stretch;
+  z-index: 0;
+}
+
+.img-hero-holder picture {
+  width: 100%;
+}
+
+.img-hero-holder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+/* =========================================
+   3. Content & Typography
+   ========================================= */
+.not-found-content {
+  position: relative;
+  z-index: 2;
+  min-height: 100%;
+  padding-block: 3rem;
+}
+
+.hero-about .title {
+  font-size: 5rem;
+  word-spacing: -0.5rem;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+.hero-not-found.hero-about .not-found-content {
+  width: 80% !important;
+  height: 60vh !important;
+  gap: 2rem;
+}
+.about-title {
+  color: #3e342f;
+}
+
+.hero-about .text-muted {
+  font-size: 1.12rem !important;
+  line-height: 1.6;
+  width: 70%;
+}
+
+/* =========================================
+   4. Values Section (Cards)
+   ========================================= */
+.values-container {
+  margin-block: 4rem;
+}
+
+span.badge {
+  background-color: var(--secondary-hoverd);
+}
+
+.about-row {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  row-gap: 12px;
+}
+
+.about-card {
+  max-width: 480px;
+  margin: auto;
+  border: none !important;
+  box-shadow: 0 0.125rem 1.1rem 0.1rem rgba(0, 0, 0, 0.075);
+  background-color: var(--white-color);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  padding: 2rem;
+  border-radius: 24px;
+}
+
+/* Hover Animation Effect */
+.about-card::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background: var(--highlight-color);
+  z-index: 1;
+  transition: height 0.5s ease;
+}
+
+.about-card:hover::before {
+  height: 100%;
+}
+
+.about-card h5,
+.about-card p,
+.about-card .mb-3 {
+  position: relative;
+  z-index: 2;
+}
+
+/* Icon Animation */
+.about-card .icon {
+  width: 2rem !important;
+  height: 2rem !important;
+  fill: var(--secondary-hoverd);
+  transition: transform 0.6s ease;
+  transform-origin: center;
+}
+
+.about-card:hover .icon {
+  transform: rotate(360deg) scale(1.1);
+}
+
+/* =========================================
+   5. Organized Media Queries (Descending)
+   ========================================= */
+
+/* Large Screens */
+@media (min-width: 1320px) {
+  .hero-not-found {
+    min-height: 70vh;
+  }
+}
+
+/* Laptops & Tablets Landscape */
+@media (max-width: 1155px) {
+  .not-found-sec {
+    min-height: 50vh;
+  }
+
+  .hero-about .title {
+    font-size: 4.5rem;
+  }
+  .hero-about .text-muted {
+    font-size: 1.1rem !important;
+    width: 60%;
+  }
+}
+
+/* Tablets Portrait */
+@media (max-width: 940px) {
+  .hero-about .title {
+    font-size: 3.5rem;
+    word-spacing: normal;
+  }
+
+  .hero-about .text-muted {
+    width: 66% !important;
+  }
+
+  .about-row {
+    width: 90%;
+  }
+
+  h2.title.fw-bold.mb-4 {
+    font-size: 2.5rem;
+  }
+}
+
+/* Mobile Devices */
+@media (max-width: 680px) {
+  .not-found-sec {
+    min-height: auto;
+    padding-bottom: 2rem;
+  }
+  .hero-not-found.hero-about .not-found-content {
+    width: 100% !important;
+    gap: 1.4rem;
+    padding: 0;
+    max-width: 100% !important;
+  }
+  .img-hero-holder img {
+    display: none;
+  }
+
+  .not-found-content {
+    background-color: transparent;
+    width: 100% !important;
+    padding-top: 2rem;
+  }
+
+  .hero-about .title {
+    font-size: 2.5rem;
+  }
+  .hero-about .text-muted {
+    width: 90% !important;
+  }
+}
+
+/* Small Mobiles */
+@media (max-width: 475px) {
+  .hero-about .title {
+    font-size: 2rem !important;
+  }
+
+  .hero-about .text-muted {
+    font-size: 0.9rem !important;
+  }
+
+  /* لو عايز تخفي الصورة في الشاشات الصغيرة جداً */
+  .img-hero-holder {
+    display: none;
   }
 }

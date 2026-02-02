@@ -30,8 +30,8 @@
     position: absolute;
     display: flex;
     width: 100%;
-    object-fit: cover;
-    object-position: center;
+    /* object-fit: cover;
+    object-position: center; */
     top: 0;
     overflow: hidden;
 }
@@ -104,9 +104,9 @@
     .not-found-content {
         gap: 4px;
     }
-    .not-found-content .title {
+    /* .not-found-content .title {
         font-size: 1.4rem !important;
-    }
+    } */
     .img-hero-holder img {
         height: 90%;
     }
