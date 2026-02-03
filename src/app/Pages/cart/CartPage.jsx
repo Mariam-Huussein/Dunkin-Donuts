@@ -1,102 +1,60 @@
-import { useState, useMemo } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { removeFromCart, clearCart } from "./../../state/CartSlice";
-import { Link, useLocation } from "react-router-dom";
-import ProductCartItem from "./../../Components/ProductCartItem";
-import MenuCard from "../../Components/MenuCard";
-import CheckoutModal from "../../Components/CheckoutModal";
+import ProductCartItem from "../../Components/Cart/ProductCartItem/ProductCartItem";
+import CheckoutModal from "../../Components/Common/Modal/CheckoutModal";
+import EmptyState from "../../Components/Common/EmptyState/EmptyState";
 import "./CartPage.css";
+import { useCartPageLogic } from "../../hooks/useCartPageLogic"
 
-function Cart() {
-  const dispatch = useDispatch();
-  const { cartItems } = useSelector((state) => state.cart);
-  const { wishlistItems } = useSelector((state) => state.wishlist);
-  const location = useLocation();
+export default function CartPage() {
+  const {
+    cartItems,
+    itemOptions,
+    showModal,
+    handleOptionChange,
+    handleClearCart,
+    openModal,
+    closeModal,
+  } = useCartPageLogic();
 
-  const [itemOptions, setItemOptions] = useState({});
-  const [showModal, setShowModal] = useState(false);
-
-  const activeTab = useMemo(() => {
-    if (location.pathname.includes("/wishlist")) return "wishlist";
-    return "cart";
-  }, [location.pathname]);
-
-  const isEmpty =
-    (activeTab === "cart" && cartItems.length === 0) ||
-    (activeTab === "wishlist" && wishlistItems.length === 0);
-
-  const handleOptionChange = (id, flavor) => {
-    setItemOptions((prev) => ({ ...prev, [id]: flavor }));
-  };
-
-  const clearCartHandler = () => {
-    cartItems.forEach((item) => dispatch(removeFromCart(item.id)));
-    dispatch(clearCart());
-    setItemOptions({});
-  };
+  // Empty State Check
+  if (cartItems.length === 0) {
+    return (
+      <EmptyState 
+        title="Your Cart is empty" 
+        imgPath="/img/EmptyCart.png" 
+      />
+    );
+  }
 
   return (
     <div className="cart-page">
-      {isEmpty && (
-        <div className="empty-cart">
-          <h2 className="title hero-title fs-1 mb-4">
-            {activeTab === "cart" ? "Your Cart is empty" : "Your Wishlist is empty"}
-          </h2>
-          <h1 className="title hero-title fs-2">
-            No Item To Show
-          </h1>
-          <img src={activeTab === "cart" ? "img/EmptyCart.png" : "img/EmptyWishlist.png"} alt="No Items To Show" className="empty-cart-img" />
-          <Link to="/menu" className="my-btn my-btn-primary fs-5">
-            Back To Menu
-          </Link>
+      <div className="cart-box">
+        <h1 className="title text-center my-2 fs-1">Shopping Cart</h1>
+
+        <div className="cart-items">
+          {cartItems.map((ele, index) => (
+            <ProductCartItem
+              key={ele.id || `cart-item-${index}`}
+              ele={ele}
+              onChangeOption={handleOptionChange}
+            />
+          ))}
         </div>
-      )}
 
-      {activeTab === "cart" && cartItems.length > 0 && (
-        <div className="cart-box">
-          <h1 className="title text-center my-2 fs-1">Shopping Cart</h1>
-          <div className="cart-items">
-            {cartItems.map((ele, index) => (
-              <ProductCartItem
-                key={ele.id || `cart-item-${index}`}
-                ele={ele}
-                onChangeOption={handleOptionChange}
-              />
-            ))}
-          </div>
+        <button
+          className="my-btn my-btn-primary mt-3 w-100"
+          onClick={openModal}
+        >
+          Checkout
+        </button>
+      </div>
 
-          <button
-            className="my-btn my-btn-primary mt-3 w-100"
-            onClick={() => setShowModal(true)}
-          >
-            Checkout
-          </button>
-        </div>
-      )}
-
-      {activeTab === "wishlist" && wishlistItems.length > 0 && (
-        <div className="cart-box">
-          <h2 className="title text-center fs-2 my-2">
-            Saved for later ({wishlistItems.length} items)
-          </h2>
-          <div className="wishlist-grid">
-            {wishlistItems.map((ele, index) => (
-              <MenuCard key={ele.id || `wishlist-item-${index}`} product={ele} />
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* ---------------- Checkout Modal ---------------- */}
       <CheckoutModal
         show={showModal}
-        onClose={() => setShowModal(false)}
+        onClose={closeModal}
         cartItems={cartItems}
         itemOptions={itemOptions}
-        clearCart={clearCartHandler}
-        />
+        clearCart={handleClearCart}
+      />
     </div>
   );
 }
-
-export default Cart;

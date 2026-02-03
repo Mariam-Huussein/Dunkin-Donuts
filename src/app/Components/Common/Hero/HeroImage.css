@@ -1,0 +1,289 @@
+/* section.hero{
+    padding: 0 !important;
+    overflow: hidden;
+    min-height: unset !important;
+    height: unset !important;
+    max-height: unset !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.hero-container.position-relative {
+    display: flex;
+    align-items: center;
+    height: 70vh;
+}
+
+.big-hero,
+.mid-hero{
+    display: block;
+}
+
+.xs-hero,
+.sm-hero,
+.large-hero{
+    display: none;
+}
+
+.hero-content{
+    min-height: 100%;
+    padding-block: 1rem;
+}
+
+.hero-img-holder {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    overflow: hidden;
+}
+
+.hero-img-holder img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+@media (min-width: 1320px) {
+    .hero-container.position-relative {
+        height: 62vh;
+    }
+    .hero-img-holder {
+        height: 100%;
+    }
+    .large-hero{
+        display: none;
+    }
+    .mid-hero{
+        display: block;
+    }
+    
+    .mid-hero,
+    .big-hero{
+        display: block;
+        width: 100% !important;
+        height: 100%;
+        object-fit: cover !important;
+        object-position: center !important;
+    }
+    .hero-img-holder img {
+        width: 100%;
+    }
+}
+
+@media (max-width: 1040px) {
+    .hero-container.position-relative {
+        height: 62vh;
+    }
+    
+}
+@media (max-width: 930px) {
+    .big-hero,
+    .mid-hero{
+        display: none;
+    }
+    .sm-hero{
+        display: block;
+    }
+    .hero-title{
+        font-size: 2.2rem;
+    }
+    .hero-subtitle {
+        font-size: 1rem;
+        width: 100%;
+    }
+}
+
+@media (max-width: 760px) {
+    .hero-container.position-relative {
+        height: 54vh;
+        padding-block: 1rem;
+    }
+}
+
+@media (max-width: 680px) {
+    .hero-container.position-relative {
+        height: 100vh;
+    }
+    .hero-img-holder img{
+        display: none;
+    }
+    .hero-img-holder .xs-hero {
+        display: block;
+        width: 100%;
+        height: 60%;
+    }
+    .hero-img-holder {
+        overflow: unset;
+        top: -28%;
+        height: 100%;
+    }
+    .hero-container .container {
+        margin: 0;
+        width: 90%;
+        max-width: unset;
+        margin-inline: auto;
+    }
+    .hero-content{
+        margin-top: 6rem;
+        width: 100%;
+    }
+    .hero-title {
+        line-height: 1.5;
+    }
+}
+
+ */
+
+/* 1. Reset Section */
+section.hero {
+  padding: 0 !important;
+  overflow: hidden;
+  min-height: auto !important;
+  height: unset !important;
+  max-height: unset !important;
+  margin: 0 !important;
+  position: relative;
+  background-color: transparent;
+}
+
+/* 2. Main Container */
+.hero-container.position-relative {
+  display: flex;
+  align-items: center;
+  height: 70vh;
+}
+
+/* 3. Image Holder */
+.hero-img-holder {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: 0;
+  align-items: stretch;
+}
+
+/* 4. The Single Main Image */
+.hero-main-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block !important;
+}
+
+/* 5. Content */
+.hero-content {
+  min-height: 100%;
+  padding-block: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* ================= Media Queries ================= */
+
+@media (max-width: 1040px) {
+  .hero .container {
+    display: flex;
+    justify-content: center;
+    max-width: 75%;
+  }
+}
+
+@media (max-width: 955px) {
+  .hero-subtitle {
+    width: 75%;
+  }
+  .hero .container {
+    max-width: 92%;
+  }
+}
+
+@media (max-width: 930px) {
+  .hero-title {
+    /* font-size: 2.4rem; */
+    word-spacing: -10px;
+  }
+  .hero-subtitle {
+    font-size: 1.12rem;
+    width: 100%;
+  }
+
+  .hero .container {
+    max-width: 60%;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero-container.position-relative {
+    padding-block: 1rem;
+  }
+
+  .hero .container {
+    max-width: 74%;
+  }
+}
+
+/* ================= Mobile Layout Logic ================= */
+@media (max-width: 680px) {
+  .hero-container.position-relative {
+    height: 60vh;
+  }
+
+  .hero-img-holder {
+    overflow: unset;
+    top: 0;
+    height: 50%;
+    z-index: 0;
+    display: none;
+  }
+
+  .hero-main-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+  }
+
+  .hero-container .container {
+    margin: 0;
+    width: 90%;
+    max-width: unset;
+    margin-inline: auto;
+  }
+
+  .hero-content {
+    margin-top: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero-title {
+    line-height: 1.2;
+    font-size: 2rem;
+  }
+
+  section.hero {
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media (max-width: 475px) {
+  .not-found-content {
+    gap: 8px;
+    width: 100% !important;
+  }
+  .hero-title {
+    line-height: 1.2;
+    font-size: 2.9rem;
+  }
+  .hero-container.position-relative {
+    height: 80vh;
+  }
+}
