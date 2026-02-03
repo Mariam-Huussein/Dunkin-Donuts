@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { clearCart } from "../store/CartSlice";
 
-export const useCartLogic = () => {
+export const useCartPageLogic = () => {
   const dispatch = useDispatch();
   
   // 1. Redux State

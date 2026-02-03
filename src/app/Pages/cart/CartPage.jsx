@@ -1,7 +1,8 @@
 import ProductCartItem from "../../Components/Cart/ProductCartItem/ProductCartItem";
 import CheckoutModal from "../../Components/Common/Modal/CheckoutModal";
+import EmptyState from "../../Components/Common/EmptyState/EmptyState";
 import "./CartPage.css";
-import { useCartLogic } from "../../hooks/useCartPageLogic";
+import { useCartPageLogic } from "../../hooks/useCartPageLogic"
 
 export default function CartPage() {
   const {
@@ -12,16 +13,18 @@ export default function CartPage() {
     handleClearCart,
     openModal,
     closeModal,
-  } = useCartLogic();
+  } = useCartPageLogic();
 
-  // Logic: Empty State Check
+  // Empty State Check
   if (cartItems.length === 0) {
     return (
-      <EmptyState title="Your Cart is empty" imgPath="/img/EmptyCart.png" />
+      <EmptyState 
+        title="Your Cart is empty" 
+        imgPath="/img/EmptyCart.png" 
+      />
     );
   }
 
-  // UI: Rendering
   return (
     <div className="cart-page">
       <div className="cart-box">

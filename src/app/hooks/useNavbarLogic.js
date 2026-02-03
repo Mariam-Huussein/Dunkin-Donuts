@@ -7,7 +7,7 @@ export function useNavbarLogic() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  const { userData, handleLogout } = useContext(AuthContext);
+  const { userData, handleLogout , loading } = useContext(AuthContext);
 
   // Get cart items count from redux
   const cartCount = useSelector(
@@ -37,6 +37,7 @@ export function useNavbarLogic() {
     wishlistCount,
     userData,
     handleLogout,
+    loading,
     toggleMenu,
   };
 }
