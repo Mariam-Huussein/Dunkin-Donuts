@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import MenuCard from "../../Components/Menu/MenuCard/MenuCard";
 import EmptyState from "../../Components/Common/EmptyState/EmptyState";
-import "../Cart/CartPage.css";
+import "../cart/CartPage.css";
 
 export default function WishlistPage() {
   const { wishlistItems } = useSelector((state) => state.wishlist);
