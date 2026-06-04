@@ -1,8 +1,8 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 
-export default defineConfig(({ mode }) => ({
-  base: mode === "production" ? "/Dunkin-Donuts/" : "/",
+export default defineConfig({
+  base: "/",
   build: {
     chunkSizeWarningLimit: 1600,
     rollupOptions: {
@@ -17,4 +17,4 @@ export default defineConfig(({ mode }) => ({
     },
   },
   plugins: [react()],
-}))
+})
