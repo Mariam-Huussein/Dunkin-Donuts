@@ -1,68 +1,91 @@
-# Dunkin' Donuts Web Project 🍩
+# 🍩 Dunkin' Donuts Web Clone
 
-This is a **React + Vite** training project developed during my internship at **DevWave**.  
-It’s a web version of Dunkin' Donuts where users can browse products, create accounts, manage their cart/wishlist, and place orders using Firebase.
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
+![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
+![Firebase](https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase)
+![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
+![MUI](https://img.shields.io/badge/MUI-%230081CB.svg?style=for-the-badge&logo=mui&logoColor=white)
 
----
+This is a modern, responsive web application inspired by **Dunkin' Donuts**. It was developed as a training project during my internship at **DevWave**, demonstrating proficiency in frontend development, state management, and backend-as-a-service integration.
 
-## 🛠️ Technologies Used
-
-- **React + Vite** → Fast and modern frontend framework.  
-- **Redux** → State management for cart, wishlist, and user session.  
-- **Bootstrap** → Responsive design and prebuilt UI components.  
-- **CSS** → Custom styling.  
-- **Firebase**:  
-  - Authentication → User accounts (Register, Login, Forget Password).  
-  - Firestore Database → Store user orders.  
-- **GitHub Pages** → Deployment and hosting.  
+Users can browse a dynamic menu, manage their carts and wishlists, create accounts, and securely place orders using Firebase infrastructure.
 
 ---
 
-## ⚡ Features
+## ⚡ Key Features
 
-- **Home Page**:  
-  - Hero section with introduction.  
-  - Special **Offers list**.  
+- **🛍️ Complete Shopping Experience**: Browse items, add to cart, and save favorites to a wishlist.
+- **🔐 Secure Authentication**: Full user authentication flow (Register, Login, Forgot Password) powered by Firebase.
+- **📦 Order Management**: Authenticated users can place orders, which are securely stored in Firebase Firestore.
+- **🛡️ Protected Routes**: Route guarding ensures only logged-in users can access checkout and specific profile areas.
+- **📱 Fully Responsive**: A mobile-first design approach using Bootstrap and custom CSS for a seamless experience on any device.
+- **🔍 Dynamic Menu**: Filter and search through products in real-time.
+- **🔔 Interactive UI**: Toast notifications, loading spinners, and modern icons enhance the user experience.
 
-- **Menu Page**:  
-  - Displays menu items with images and prices.  
-  - Search and filter functionality.  
+---
 
-- **About Page**:  
-  - Information about Dunkin' Donuts.  
+## 🛠️ Tech Stack & Libraries
 
-- **Contact Page**:  
-  - Contact form for inquiries.  
-  - Display of contact information and social links.  
+### Frontend Core
+- **React 19** & **Vite** → Lightning-fast development and optimized production builds.
+- **React Router v7** → Client-side routing and navigation.
 
-- **Auth Pages**:  
-  - User registration, login, and forget password (via Firebase Authentication).  
+### State Management
+- **Redux Toolkit (RTK)** → Efficient, scalable global state management for the Cart, Wishlist, and User Session.
 
-- **Cart**:  
-  - Add/remove items from cart.  
-  - State managed via **Redux**.  
-  - Only authenticated users can place an order.  
+### UI & Styling
+- **Bootstrap 5** & **React Bootstrap** → Responsive layout grid and accessible UI components.
+- **Material-UI (MUI)** → Additional premium React components.
+- **Custom CSS** → Tailored styling to match the Dunkin' Donuts brand aesthetic.
+- **Lucide React** & **React Icons** → Extensive icon libraries for a polished look.
 
-- **Wishlist**:  
-  - Save favorite items for later.  
-  - Managed with **Redux**.  
+### Backend & Services
+- **Firebase Authentication** → Secure user credential management.
+- **Firebase Firestore** → NoSQL cloud database for storing user orders and data.
+
+### Utilities
+- **Zod** → Schema validation for robust form handling.
+- **React Hot Toast** & **React Toastify** → Beautiful, customizable notifications.
+- **React Spinners** → Engaging loading state animations.
+
+---
+
+## 🚀 Getting Started
+
+To run this project locally, follow these steps:
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/Mariam-Huussein/Dunkin-Donuts.git
+cd Dunkin-Donuts
+```
+
+### 2. Install dependencies
+```bash
+npm install
+```
+
+### 3. Setup Firebase Config
+Create a Firebase project, enable Authentication (Email/Password) and Firestore. Update the `firebaseconfig.js` with your project credentials.
+
+### 4. Run the development server
+```bash
+npm run dev
+```
 
 ---
 
 ## 🌐 Live Demo
 
-Check out the live version hosted on GitHub Pages:  
-👉 [Dunkin' Donuts](https://mariam-huussein.github.io/Dunkin-Donuts/)
+Check out the live version of the project here:  
+👉 **[Dunkin' Donuts Web App](https://mariam-huussein.github.io/Dunkin-Donuts/)**
+
+*(Note: The project is also configured for Vercel deployment).*
 
 ---
 
-## 📚 Notes
+## 📚 Acknowledgments
 
-- This project was part of a **training program at DevWave**.  
-- It demonstrates:  
-  - **React + Vite** for modern frontend development.  
-  - **Redux** for state management.  
-  - **Firebase Authentication** (Register, Login, Forget Password).  
-  - **Firebase Firestore** for storing orders.  
-  - Protected routes → only authenticated users can place orders.  
-  - Responsive UI designed with **Bootstrap + CSS**.  
+- This project was built as part of an intensive training program at **DevWave**.
+- It showcases the integration of modern web technologies to create a production-ready e-commerce frontend.
